@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Score</title>
+
+    <link rel="stylesheet" href="style1.css">
+    <script src="script1.js"></script>
+    <style>
+        .score-box1 {
+            padding: 10% 5% 5% 5%;
+        }
+
+        .score-box1 .score1 {
+            /* padding-top: 25px; */
+            /* margin: 20px; */
+            padding: 20px;
+            border: 2px solid #263165;
+            border-radius: 2px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        /* .navbar {
+            background-color: #1987d1;
+            border-radius: 45px;
+        } */
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            background-color: #263165;
+
+        }
+
+        .dropbtn {
+            background-color: inherit;
+            color: white;
+            /* Text color for the dropdown button */
+            padding: 14px 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            border-radius: 25px;
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            /* Background color for the dropdown menu */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #263165;
+            /* Text color for the dropdown menu items */
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #868686;
+            /* Background color for hovered menu items */
+            border-radius: 25px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .answer {
+            color: #f9f9f9;
+            margin-top: 25px;
+            text-align: center;
+            background-color: #1987d1;
+            border: #1987d1;
+            padding: 20px;
+
+        }
+
+        .boxanswer {
+            color: #263165;
+            background-color: #eff9ff;
+            border: 2px solid;
+            box-shadow: 10px 10px 0px 1px #d4d6e1;
+
+            padding: 5px;
+            border-radius: 5px;
+            margin: 2% 5% 3% 5%;
+            padding-left: 20px;
+        }
+
+        .an {
+            background-color: #40bce1;
+            color: #f9f9f9;
+            font-size: x-large;
+            font-weight: 600;
+            width: 30%;
+            padding: 2vw;
+            border-radius: 5px;
+            padding-left: 30px;
+        }
+
+        span {
+            color: #E9444D;
+        }
+
+        span1 {
+            color: #20938B;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <nav class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn">เลือกหน้าที่ต้อง</button>
+            <div class="dropdown-content">
+                <a href="home.html">หน้าหลัก</a>
+                <a href="detail.html">เนื้อหา VA</a>
+                <a href="va1.html">ทำแบบทดสอบอีกครั้ง (ปริศนา VA)</a>
+            </div>
+        </div>
+    </nav> -->
+
+    <nav class="navbar">
+        <img src="image/icon.webp" alt="">
+        <div class="navigation">
+            <ul>
+                <li><a class="active" href="01_homepage.html"><i class='bx bx-home'></i>Home</a></li>
+                <li><a class="active" href="02_eyecheckup_0.html"><i class="far fa-eye"></i>Eye check up</a></li>
+                <li><a class="active" href="03_content.html"><i class='bx bx-detail'></i>Content</a></li>
+                <li><a class="active" href="04_quiz_1.html"><i class='bx bx-edit'></i>Quiz</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="score-box1">
+
+        <div class="score1">
+
+            <h1>
+                <p id="name-result"> </p>
+                คะแนนรวม : <span1 id="totalScore"></span1>
+
+            </h1>
+        </div>
+
+    </section>
+
+    <section class="answer">
+        <h1>คำตอบที่ถูกต้อง</h1>
+    </section>
+
+    <section class="boxanswer">
+        <p> 1). แพง มาตรวจวัดสายตาด้วย Snellen chart โดยที่ยืนในระยะ 6 เมตร พบว่าตาข้างขวา อ่านแถวล่างสุดผิด 2 ตัว
+            ดังนี้ <span1>7 2 6 4 </span1>
+            <span>7</span>
+            <span1>9</span1> <span>3</span>
+        </p>
+        <p class="an">เฉลย 6/6</p>
+    </section>
+
+    <section class="boxanswer">
+        <p>2). มาตามาตรวจวัดสายตาด้วย Snellen chart โดยที่ยืนในระยะ 6 เมตร พบว่ามาตามองไม่เห็นตัวเลข แถวบนสุด
+            จึงขยับเข้ายืนที่ระยะ 5 เมตร พบว่าตาข้างซ้ายมองเห็นเลขตัวบนสุดและอ่านได้ถูกต้องดังนี้ <span1> 8 5</span1>
+        </p>
+        <p class="an">เฉลย 5/60</p>
+    </section>
+
+    <section class="boxanswer">
+        <p>3). ไตรฉัตร มาตรวจวัดสายตาด้วย Snellen chart โดยที่ยืนในระยะ 6 เมตร พบว่า ตาขวาอ่านแถวล่างสุดผิด 3 ตัว ดังนี้
+            <span1>7 2 6 </span1>
+            <span>4 7</span>
+            <span1> 9 </span1><span>3</span> แถวที่ 2 จากบรรทัดล่างผิด 1 ตัว <span1>3 7 4 6 2 8</span1> <span>5</span>
+        </p>
+        <p class="an">เฉลย 6/9</p>
+    </section>
+
+    <section class="boxanswer">
+        <p> 4). เป็นหนึ่ง มาตรวจวัดสายตาด้วย Snellen chart โดยที่ยืนในระยะ 6 เมตร พบว่า ตาซ้ายอ่านแถวที่ 3
+            จากบรรทัดล่างผิด
+            1 ตัว ดังนี้ <span>4</span>
+            <span1> 2 8 3 5 6</span1>
+        </p>
+        <p class="an">เฉลย 6/12</p>
+    </section>
+
+    <section class="boxanswer">
+        <p>5). เกรซ มาตรวจวัดสายตาด้วย Snellen chart โดยที่ยืนในระยะ 6 เมตร พบว่าตาขวามองไม่เห็น ตัวเลขบนสุด
+            จึงขยับเข้ามาครั้งละ 1 เมตรจนถึงระยะ 2 เมตร มองเห็นและอ่านได้ถูกต้อง ดังนี้ <span1>8 5</span1>
+        </p>
+        <p class="an">เฉลย 2/60</p>
+    </section>
+
+    <section class="boxanswer">
+        <p>6). ถิงถิง มาตรวจวัดสายตาด้วย Snellen chart โดยที่ยืนในระยะ 6 เมตร พบว่าตาซ้ายอ่านแถวบนสุด ถูกทุกตัว ดังนี้
+            <span1>8 5</span1>
+            อ่านแถวที่ 2 จากบนสุดถูก 2 ตัว ดังนี้ <span1>2 9</span1> <span>3</span> และอ่านแถวที่ 3 จากบนสุดถูก 1 ตัว
+            ดังนี้
+            <span1>8 </span1><span>7 5 4</span>
+        </p>
+        <p class="an">เฉลย 6/36</p>
+    </section>
+    <section class="boxanswer">
+        <p> 7). วีนัท มาตรวจวัดสายตาด้วย Snellen chart โดยที่ยืนในระยะ 6 เมตร พบว่าตาขวาอ่านแถวบนสุด ถูกทุกตัว ดังนี้
+            <span1>8 5</span1>
+            อ่านแถวที่ 2 จากบนสุดถูก 2 ตัว ดังนี้ <span1>2 9 </span1><span>3</span> อ่านแถวที่ 3 จากบนสุดถูก 3 ตัว
+            ดังนี้
+            <span1>8 7 5</span1>
+            <span>4</span> และแถวที่ 4 จากบนสุดอ่านไม่ได้
+        </p>
+        <p class="an">เฉลย 6/24</p>
+    </section>
+
+
+    <script>
+        function goToHome() {
+            window.location.href = 'home.html'; //ใส่หน้าหลักของเอมเลย
+        }
+
+        function calculateTotalScore() {
+            const answers = {
+                q1: "6/6",
+                q2: "5/60",
+                q3: "6/9",
+                q4: "6/12",
+                q5: "2/60",
+                q6: "6/36",
+                q7: "6/24",
+            };
+
+            let totalScore = 0;
+
+            // Loop through questions and compare user answers with correct answers
+            for (let i = 1; i <= 7; i++) {
+                const questionName = "q" + i;
+                const userAnswer = localStorage.getItem(questionName);
+
+                if (userAnswer === answers[questionName]) {
+                    totalScore++;
+                }
+            }
+
+            // Display the total score on the web page
+            document.getElementById("totalScore").textContent = totalScore.toString();
+            console.log(totalScore.toString());
+            var scoreQ = " " + totalScore.toString();
+            localStorage.setItem('storedQuiz', scoreQ);
+
+
+        }
+
+        // Call the calculateTotalScore function when the page is loaded
+        window.onload = calculateTotalScore();
+
+    </script>
+
+    <script>
+        var listScore = [];
+
+        window.onload = function () {
+            // Retrieve the stored value from localStorage
+            var storedName = localStorage.getItem('storedName');
+            console.log(storedName);
+            document.getElementById('name-result').innerHTML = "คุณ " + storedName + " ได้";
+
+        };
+
+        function addDataToLocalStorage(name, total) {
+            // Retrieve existing data or initialize an empty array
+            const existingData = JSON.parse(localStorage.getItem('storeScoreQuiz')) || [];
+            // Add the new data with the "name" column
+            existingData.push({ name, total });
+            // Store the updated data back in localStorage
+            localStorage.setItem('storeScoreQuiz', JSON.stringify(existingData));
+        }
+        var storedName = localStorage.getItem('storedName');
+        var storedQuiz = localStorage.getItem('storedQuiz');
+
+        listScore.push(storedName);
+        listScore.push(storedQuiz);
+        console.log(listScore);
+        addDataToLocalStorage(listScore[0], listScore[1])
+    </script>
+
+</body>
+<footer>
+    <section class="footer-img">
+        <!-- <img src="image/eye12.png" alt=""> -->
+    </section>
+
+    <section class="footer-contrainer">
+
+    </section>
+</footer>
+
+</html>

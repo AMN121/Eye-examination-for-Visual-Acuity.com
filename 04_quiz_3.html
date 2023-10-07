@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check eyesight</title>
+
+    <!--link to css-->
+    <link rel="stylesheet" href="style1.css">
+    <!--link to icons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="your_website_domain/css_root/flaticon.css">
+
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <img src="image/icon.webp" alt="">
+        <div class="navigation">
+            <ul>
+                <li><a class="active" href="01_homepage.html"><i class='bx bx-home'></i>Home</a></li>
+                <li><a class="active" href="02_eyecheckup_0.html"><i class="far fa-eye"></i>Eye check up</a></li>
+                <li><a class="active" href="03_content.html"><i class='bx bx-detail'></i>Content</a></li>
+                <li><a class="active" href="04_quiz_1.html"><i class='bx bx-edit'></i>Quiz</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="quiz">
+        <div class="quiz-box">
+            <div class="quiz-user-input">
+                <!-- <label for="username">ชื่อของคุณ</label> -->
+                <!-- <p0 class="nameuser">ชื่อของคุณ</p0> -->
+                <!-- <input type="text" name="username" id="username" onchange="storeUser()"> -->
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="container">
+        <h2>โจทย์ข้อที่ 3</h2>
+        <p>ไตรฉัตร มาตรวจวัดสายตาด้วย Snellen chart โดยที่ยืนในระยะ 6 เมตร พบว่า ตาขวาอ่านแถวล่างสุดผิด 3 ตัว ดังนี้
+            <p1>7 2 6</p1><p2> 4 7</p2><p1> 9</p1><p2> 3</p2> แถวที่ 2 จากบรรทัดล่างผิด 1 ตัว <p1>3 7 4 6 2 8</p1><p2> 5</p2>
+            <!-- <span>7</span> 9 <span>3</span> -->
+        </p>
+        <br>
+
+        <div class="answer-container">
+            <input type="radio" class="answer" name="q3" value="6/6" id="option13">
+            <label for="option13" class="option-label">6/6</label>
+          
+            <input type="radio" class="answer" name="q3" value="6/9" id="option14">
+            <label for="option14" class="option-label">6/9</label>
+          
+            <input type="radio" class="answer" name="q3" value="6/12" id="option15">
+            <label for="option15" class="option-label">6/12</label>
+          
+            <input type="radio" class="answer" name="q3" value="6/24" id="option16">
+            <label for="option16" class="option-label">6/24</label>
+          
+            <input type="radio" class="answer" name="q3" value="6/36" id="option17">
+            <label for="option17" class="option-label">6/36</label>
+          
+            <input type="radio" class="answer" name="q3" value="6/60" id="option18">
+            <label for="option18" class="option-label">6/60</label>
+          </div>
+
+    </div>
+
+    <section class="link-to2">
+        <div class="link-to-page2">
+            <ul>
+                <li><a class="active2" href="04_quiz_2.html"><i class='bx bxs-left-arrow-square'></i> &#160;Back</a></li>
+                <li><a class="active2" onclick="saveScore(); goToNextPage();">Next&#160; <i class='bx bxs-right-arrow-square'></i></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        function goToNextPage() {
+            // ตรวจสอบว่าผู้ใช้ได้ตอบคำถามแล้วหรือไม่
+            if (document.querySelector('input[name="q3"]:checked') !== null) {
+                // เปลี่ยนหน้าไปที่ va2.html
+                window.location.href = '04_quiz_4.html';
+            } else {
+                // แสดงข้อความแจ้งเตือนให้ผู้ใช้ตอบคำถาม
+                alert('กรุณาตอบคำถามก่อน');
+            }
+        }
+
+        function saveScore() {
+        const selectedAnswer = document.querySelector('input[name="q3"]:checked');
+        if (selectedAnswer) {
+            localStorage.setItem('q3', selectedAnswer.value);
+              }
+         }
+
+        function calculateTotalScore() {
+            const answers = {
+                q3: "6/9" };}
+
+        // function goToNextPageNoAnswer() {
+        //   // เปลี่ยนหน้าไปที่ va3.html โดยไม่ตรวจสอบว่าผู้ใช้ได้ตอบคำถามหรือไม่
+        //   window.location.href = 'va3.html';
+        // }
+    </script>
+
+
+
+</body>
+<footer>
+    <section class="footer-img">
+    </section>
+
+    <section class="footer-contrainer">
+
+    </section>
+</footer>
+
+</html>

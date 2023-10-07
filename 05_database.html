@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check eyesight</title>
+
+    <!--link to css-->
+    <link rel="stylesheet" href="style1.css">
+    <!--link to js-->
+    <script src="script1.js"></script>
+    <script src="store.js"></script>
+    <!--link to icons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="your_website_domain/css_root/flaticon.css"> -->
+
+
+</head>
+
+<body>
+    <section class="manage-information">
+        <div class="manage-information-box">
+            <button id="manage1" class="manage" onclick="downloadCSVEyesInformation()">Download Eyes check-up Information </button>
+            <button id="manage2" class="manage" onclick="clearStoreEyes()">Delete eyes check-up information </button>
+        </div>
+
+        <div class="manage-information-box">
+            <button id="manage1" class="manage" onclick="downloadCSVQuizInformation()">Download Testing Information </button>
+            <button id="manage2" class="manage" onclick="clearStoreQuiz()">Delete test information </button>
+        </div>
+    </section>
+
+    <style>
+        .manage-information{
+            display: flex;
+        }
+        .manage-information .manage-information-box{
+            display: flex;
+            flex-direction: column;
+            /* background-color: aquamarine; */
+            border: 3px solid #263165;
+            box-shadow: 20px 20px 0px 0px rgba(47,58,108,01);
+            width: 50%;
+            margin: 5%;
+        }
+        .manage-information .manage-information-box .manage{
+            height: 100%;
+            padding: 20px;
+            margin: 2%;
+            color: #263165;
+            font-size: large;
+            font-weight: 700;
+            border: 2px solid #263165;
+            transition: 0.3s ease;
+
+        }
+        .manage-information .manage-information-box #manage1{
+            background-color: #beeaf7;
+        }
+        .manage-information .manage-information-box #manage2{
+            background-color: #f7cfbe;
+        }
+    </style>
+
+    <script>
+
+        function clearStoreEyes() {
+            localStorage.removeItem('storeScoreEyes');
+            console.log(' OK clear Store');
+        }
+        function clearStoreQuiz() {
+            localStorage.removeItem('storeScoreQuiz');
+            console.log(' OK clear Store');
+        }
+        function downloadCSVEyesInformation() {
+            const data = JSON.parse(localStorage.getItem('storeScoreEyes')) || [];
+            const columnNames = data.length > 0 ? Object.keys(data[0]) : [];
+            const csvContent = [columnNames.join(','), ...data.map(row => columnNames.map(col => row[col]).join(','))].join('\n');
+
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const link = document.createElement('a');
+            link.download = 'รายชื่อผู้รับการตรวจสายตา.csv';
+            link.href = window.URL.createObjectURL(blob);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            console.log('Data has been written to quiz-output.csv');
+        }
+
+        function downloadCSVQuizInformation() {
+            const data = JSON.parse(localStorage.getItem('storeScoreQuiz')) || [];
+            const columnNames = data.length > 0 ? Object.keys(data[0]) : [];
+            const csvContent = [columnNames.join(','), ...data.map(row => columnNames.map(col => row[col]).join(','))].join('\n');
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const link = document.createElement('a');
+            link.download = 'รายชื่อผู้ทำแบบทดสอบ.csv';
+            link.href = window.URL.createObjectURL(blob);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            console.log('Data has been written to quiz-output.csv');
+        }
+
+    </script>
+
+</body>
+
+
+</html>

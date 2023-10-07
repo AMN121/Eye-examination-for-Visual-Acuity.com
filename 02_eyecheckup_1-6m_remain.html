@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check eyesight</title>
+
+    <!--link to css-->
+    <link rel="stylesheet" href="style1.css">
+    <!--link to js-->
+    <script src="script1.js"></script>
+    <!--link to icons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="your_website_domain/css_root/flaticon.css"> -->
+
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <img src="image/icon.webp" alt="">
+        <div class="navigation">
+            <ul>
+                <li><a class="active" href="01_homepage.html"><i class='bx bx-home'></i>Home</a></li>
+                <li><a class="active" href="02_eyecheckup_0.html"><i class="far fa-eye"></i>Eye check up</a></li>
+                <li><a class="active" href="03_content.html"><i class='bx bx-detail'></i>Content</a></li>
+                <li><a class="active" href="04_quiz_1.html"><i class='bx bx-edit'></i>Quiz</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="checkup-img">
+        <img src="image/6m-1.png" alt="" width="100%">
+    </section>
+
+    <section class="checkup-num">
+        <div class="checkup-num-input">
+
+            <!-- <div class="user-input">
+                <p0 class="tagname">ชื่อของคุณ</p0>
+                <input type="text" name="username" id="username" onchange="storeUser()">
+            </div> -->
+
+            <!-- <form> -->
+            <div class="form-input">
+                <input type="number" class="numinput" name="number" id="input-number1" min="1">
+                <input type="number" class="numinput" name="number" id="input-number2" min="1">
+                <!-- <input type="number" class="numinput" name="number" id="input-number3" min="1"> -->
+                <!-- <input type="number" class="numinput" name="number" id="input-number4" min="1"> -->
+                <!-- <input type="number" class="numinput" name="number" id="input-number5" min="1"> -->
+                <!-- <input type="number" class="numinput" name="number" id="input-number6" min="1"> -->
+                <!-- <input type="number" class="numinput" name="number" id="input-number7" min="1"> -->
+            </div>
+
+            <!-- <div class="choose-eye">
+                <label class="eye">
+                    <input type="radio" name="eye" id="lefteye" value="ตาซ้าย">
+                    <span class="name-radio">ตาซ้าย</span>
+                </label>
+                <label class="eye">
+                    <input type="radio" name="eye" id="righteye" value="ตาขวา">
+                    <span class="name-radio">ตาขวา</span>
+                </label>
+            </div> -->
+
+            <div class="inform-box">
+                <p class="i1">คุณกำลังมองที่ระยะ 6 เมตร</p>
+                <p class="i2" id="inform"></p>
+            </div>
+
+            <div class="form-button">
+                <button type="" id="no-see"  onclick="window.location.href='02_eyecheckup_1-5m.html';">ไม่เห็น</button>
+                <button type="submit" id="ok" onclick="storeInput()">ยืนยัน</button>
+            </div>
+            <!-- </form> -->
+        </div>
+
+    </section>
+
+
+
+    <script>
+        document.getElementById("no-see").style.display = "none";
+
+        function storeUser() {
+            var name = '';
+            var name = document.getElementById('username').value;
+            console.log(name);
+            localStorage.setItem('storedName', name);
+        }
+
+
+
+        function storeInput() {
+
+            var num = ['8', '5'];
+            var store = [];
+            let s = 0;
+            // console.log(Math.floor(num.length/2))
+
+            // var name = '';
+            // var name = document.getElementById('username').value;
+            // console.log(name);
+            // localStorage.setItem('storedName', name);
+
+
+            for (let i = 0; i < document.getElementsByClassName('numinput').length; i++) {
+                let value3 = document.getElementsByClassName('numinput')[i].value;
+                store.push(value3);
+            }
+
+            // var selectedEye = document.querySelector('input[name="eye"]:checked');
+            // var unselectedEye = document.querySelector('input[name="eye"]:not(:checked)');
+            
+            // var eye = selectedEye.value;
+            // var remaineye = unselectedEye.value;
+
+            // localStorage.setItem('storedEye', eye);
+            // localStorage.setItem('storedEye_Remain', remaineye);
+            var now_Eye = localStorage.getItem('storedEye_Remain');
+            console.log(now_Eye);
+            localStorage.setItem('storedEye', now_Eye);
+
+            for (let i = 0; i < num.length; i++) {
+                if (num[i] === store[i]) {
+                    s++;
+                } else {
+                    continue
+                }
+            }
+
+            if (s > Math.floor(num.length / 2)) {
+                window.location.href = '02_eyecheckup_2-6m.html';
+            } else {
+                document.getElementById("no-see").style.display = "block";
+                document.getElementById('inform').innerHTML = 'หากไม่สามารถอ่านค่าตัวเลขได้กรุณากดปุ่ม "ไม่เห็น" '; 
+                DoubleClick()
+                // var result = "6/12";
+                // localStorage.setItem('storedValue', result);
+                // window.location.href='02_eyecheckup_1-5m.html';
+
+            }
+
+        }
+
+
+        function DoubleClick() {
+            let clickCount = 0;
+
+            document.getElementById('ok').addEventListener('click', function () {
+                // Increment the click count
+                clickCount++;
+
+                // Check if the click count is 2
+                if (clickCount === 1) {
+                    // Navigate to the next page (replace this with your actual page navigation logic)
+                    window.location.href='02_eyecheckup_1-5m.html';
+
+                    // Reset the click count after navigating
+                    clickCount = 0;
+                }
+            });
+        }
+    </script>
+
+</body>
+<footer>
+    <section class="footer-img">
+        <!-- <img src="image/eye12.png" alt=""> -->
+    </section>
+
+    <section class="footer-contrainer">
+
+    </section>
+</footer>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check eyesight</title>
+
+    <!--link to css-->
+    <link rel="stylesheet" href="style1.css">
+    <!--link to js-->
+    <script src="script1.js"></script>
+    <!--link to icons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="your_website_domain/css_root/flaticon.css"> -->
+
+
+</head>
+
+<body>
+    
+    <nav class="navbar">
+        <img src="image/icon.webp" alt="">
+        <div class="navigation">
+            <ul>
+                <li><a class="active" href="01_homepage.html"><i class='bx bx-home'></i>Home</a></li>
+                <li><a class="active" href="02_eyecheckup_0.html"><i class="far fa-eye"></i>Eye check up</a></li>
+                <li><a class="active" href="03_content.html"><i class='bx bx-detail'></i>Content</a></li>
+                <li><a class="active" href="04_quiz_1.html"><i class='bx bx-edit'></i>Quiz</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <section class="show-score" id="score">
+        <div class="show-score-box">
+            <h3>ผลการประเมินค่าสายตา</h3>
+            <img src="image/eye02-removebg.png" alt="">
+            <p class="p1" id="eye-result"></p>
+            <p class="p2" id="score-result">(^.^)</p>
+            <!-- <p class="p3" id="advice-result">ความสามารถในการมองเห็นน้อยกว่า 6/12 ต้องส่งพบจักษุแพทย์</p> -->
+            <button class="button-advice" type="" onclick="window.location.href='02_showscore_advice.html';"><p class="p3" id="advice-result">ความสามารถในการมองเห็นน้อยกว่า 6/12 ต้องส่งพบจักษุแพทย์</p></button>
+
+            <button class="button-close" type="" id="next-step"
+            onclick="window.location.href='02_eyecheckup_1-6m_remain.html';"></button>
+            <button class="button-close" type="" id="close-step"
+                onclick="window.location.href='01_homepage.html';">ปิด</button>
+        </div>
+    </section>
+
+
+    <script>
+        window.onload = function () {
+            // Retrieve the stored value from localStorage
+            var storedValue = localStorage.getItem('storedValue');
+            var storedEye = localStorage.getItem('storedEye');
+            var storedEye_selected2 = localStorage.getItem('storedEye_Remain');
+            var storedAdvice = localStorage.getItem('storedAdvice');
+            var storedName = localStorage.getItem('storedName');
+
+            let advice1 = "ความสามารถในการมองเห็น 6/9-6/12 ต้องทำการเฝ้าระวังโดยการวัดสายตาปีละหนึ่งครั้งโดยเฉพาะอย่างยิ่งในกรณีที่มีอาการปวดศีรษะ  ปวดกระบอกตา สายตามัวลง เป็นต้น ภายหลังการใช้สายตาต้องส่งพบจักษุแพทย์";
+            let advice2 = "ความสามารถในการมองเห็นน้อยกว่า 6/12 ต้องส่งพบจักษุแพทย์";
+
+            console.log(storedValue);
+            console.log(storedEye);
+            console.log(storedEye_selected2);
+            console.log(storedAdvice);
+
+            // Display the stored value on the page
+            document.getElementById('eye-result').innerHTML = storedEye + " ของ" + "คุณ " + storedName;
+            // document.getElementById('score-result').innerHTML = storedValue;
+            document.getElementById('next-step').innerHTML = "ตรวจ" + storedEye_selected2;
+
+            
+            // if (storedValue == '6/9' || storedValue == '6/12'){
+            //     document.getElementById('advice-result').innerHTML = advice1;
+            // }else{
+            //     document.getElementById('advice-result').innerHTML = advice2;
+            // }
+
+            var closeButton = document.getElementById("close-step");
+            var nextButton = document.getElementById("next-step");
+
+
+            if (storedEye == storedEye_selected2) {
+                    console.log(true);
+                    nextButton.style.display = "none"
+
+                } else {
+                    console.log(false);
+                    closeButton.style.display = "none"
+                }
+
+        };
+    </script>
+
+
+</body>
+<footer>
+    <section class="footer-img">
+        <!-- <img src="image/eye12.png" alt=""> -->
+    </section>
+
+    <section class="footer-contrainer">
+
+    </section>
+</footer>
+
+</html>
